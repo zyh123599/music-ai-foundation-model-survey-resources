@@ -1,0 +1,11 @@
+Paper,Venue,Year,Evidence_Domain,Peer_Reviewed_CCF_Core,Persistent_ID,Exact_Paper_URL,Official_Code_URL,Code_Status,Source_Checked_Date
+Separate Anything You Describe,IEEE/ACM TASLP,2024,Separation / restoration / production,YES,DOI:10.1109/TASLP.2024.3520017,https://doi.org/10.1109/TASLP.2024.3520017,https://github.com/Audio-AGI/AudioSep,OFFICIAL_CODE_LOCKED,2026-09-07
+High Fidelity Text-Guided Music Editing via Single-Stage Flow Matching (MelodyFlow),NeurIPS 2024 Workshop: Audio Imagination,2024,Editing / control,NO_WORKSHOP_NOT_CCF_CORE,arXiv:2407.03648,https://arxiv.org/abs/2407.03648,https://melodyflow.github.io/,WORKSHOP_NOT_CCF_CORE,2026-09-07
+Music Source Separation with Band-Split RoPE Transformer,ICASSP,2024,Separation / restoration / production,NO_TIER_C,,,,,
+SCNet: Sparse Compression Network for Music Source Separation,ICASSP-era / arXiv,2024,Separation / restoration / production,NO_TIER_C,,,,,
+SongCreator: Lyrics-based Universal Song Generation,NeurIPS,2024,Editing / control,NO_TIER_C,,,,,
+MusicMagus: Zero-Shot Text-to-Music Editing via Diffusion Models,IJCAI,2024,Editing / control,YES,DOI:10.24963/ijcai.2024/864; arXiv:2402.06178,https://www.ijcai.org/proceedings/2024/864,https://github.com/ldzhangyx/MusicMagus,OFFICIAL_CODE_LOCKED,2026-09-07
+"Arrange, Inpaint, and Refine: Steerable Long-Term Music Audio Generation and Editing",IJCAI,2024,Editing / control,NO_TIER_C,,,,,
+DITTO: Diffusion Inference-Time T-Optimization for Music Generation,ICML,2024,Editing / control,NO_TIER_C,,,,,
+MuChin: A Chinese Colloquial Description Benchmark for Evaluating Language Models in the Field of Music,IJCAI,2024,Music understanding / Music-LM,YES,DOI:10.24963/ijcai.2024/860; arXiv:2402.09871,https://www.ijcai.org/proceedings/2024/860,https://github.com/CarlWangChina/MuChin,OFFICIAL_CODE_LOCKED,2026-09-07
+Perception-Inspired Graph Convolution for Music Understanding Tasks,IJCAI,2024,Representation / codec,YES,DOI:10.24963/ijcai.2024/850; arXiv:2405.09224,https://www.ijcai.org/proceedings/2024/850,https://github.com/manoskary/musgconv,OFFICIAL_CODE_LOCKED,2026-09-07

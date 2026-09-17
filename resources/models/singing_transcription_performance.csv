@@ -1,0 +1,2 @@
+Paper,Venue,Year,Evidence_Domain,Persistent_ID,Exact_Paper_URL,Resource_URL,Code_Status,Weights,Dataset_public,Dataset,Source_Checked_Date,Source_Lock_Status
+HQ-SVC: Towards High-Quality Zero-Shot Singing Voice Conversion in Low-Resource Scenarios,AAAI,2026,Singing / transcription / performance,DOI:10.1609/aaai.v40i36.40249; arXiv:2511.08496,https://ojs.aaai.org/index.php/AAAI/article/view/40249,https://github.com/ShawnPi233/HQ-SVC,OFFICIAL_CODE_LOCKED,Not yet verified,Pending,Pending full-PDF extraction,2026-09-07,LOCKED
