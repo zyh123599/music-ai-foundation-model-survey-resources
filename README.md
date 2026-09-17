@@ -27,13 +27,13 @@ The detailed registry is split by area under [`resources/models/`](resources/mod
 
 ### Official repositories and reproducibility checks
 
-The source audit contains 49 GitHub repositories associated with papers or project releases. They are listed in [`repro/official_repos.csv`](repro/official_repos.csv).
+The source audit contains 49 GitHub repository links associated with papers or project releases. The original list is in [`repro/official_repos.csv`](repro/official_repos.csv). On 2026-09-17, 47 of those repositories were still reachable and were pinned to exact commit SHAs in [`repro/all_repo_source_locks.csv`](repro/all_repo_source_locks.csv); two older Tencent AI Lab URLs returned 404 and are retained in [`repro/repository_changes.csv`](repro/repository_changes.csv) instead of being silently removed.
 
-A representative set of 20 systems is pinned to exact revisions in [`repro/representative_source_locks.csv`](repro/representative_source_locks.csv). The current execution matrix is in [`repro/reproduction_matrix.csv`](repro/reproduction_matrix.csv).
+A representative set of 20 systems is used for deeper reproducibility checks in [`repro/representative_source_locks.csv`](repro/representative_source_locks.csv). The current execution matrix is in [`repro/reproduction_matrix.csv`](repro/reproduction_matrix.csv).
 
-All 20 source-locked systems have been checked for documented installation, inference, and evaluation entry points. The compact result is in [`repro/ENTRYPOINT_AUDIT.md`](repro/ENTRYPOINT_AUDIT.md); exact commands and notes are in [`repro/entrypoint_audit.csv`](repro/entrypoint_audit.csv). Each system also has a short page under [`repro/systems/`](repro/systems/).
+All 20 representative systems have been checked for documented installation, inference, and evaluation entry points. The compact result is in [`repro/ENTRYPOINT_AUDIT.md`](repro/ENTRYPOINT_AUDIT.md); exact commands and notes are in [`repro/entrypoint_audit.csv`](repro/entrypoint_audit.csv). Each system also has a short page under [`repro/systems/`](repro/systems/).
 
-Runtime fields remain `NOT_TESTED` until a command has actually been executed. A missing or changed repository URL is recorded separately in [`repro/repository_changes.csv`](repro/repository_changes.csv).
+Runtime fields remain `NOT_TESTED` until a command has actually been executed. Documentation coverage and runtime success are intentionally kept separate.
 
 To fetch the audited repositories without copying third-party code into this repository:
 
@@ -51,13 +51,15 @@ The execution procedure is documented in [`repro/RUNBOOK.md`](repro/RUNBOOK.md).
 
 ## Snapshot
 
-The main source audit used for this version was locked on **2026-09-07**. Repository reachability and source locks were checked again on **2026-09-17**.
+The main literature/source audit used for this version was locked on **2026-09-07**. Repository reachability and source revisions were checked again on **2026-09-17**.
 
 - 120 papers reviewed from 2024–2026
 - 77 peer-reviewed CCF A/B core papers in the main source audit
 - 62 paper/project records with an official code or project URL in the locked database
-- 49 records point to GitHub repositories
-- 20 representative repositories pinned to exact commit SHAs
+- 49 GitHub repository links in the earlier audit
+- 47/49 repositories reachable and pinned to exact commit SHAs on 2026-09-17
+- 2/49 older repository URLs unresolved at the re-check date
+- 20 representative systems selected for deeper reproducibility checks
 - 20/20 representative systems checked for documented install/inference/evaluation entry points
 
 These numbers are a dated snapshot. Projects may release code, weights, or data after the audit date.
@@ -89,7 +91,7 @@ If a row says that no official code was located, read it as **not verified by th
 python scripts/filter_resources.py resources/papers/reviewed_papers_2026.csv --core
 python scripts/check_urls.py resources/models/generation.csv --column Resource_URL
 python scripts/summarize_releases.py
-python repro/verify_source_locks.py
+python repro/verify_source_locks.py --file repro/all_repo_source_locks.csv
 python scripts/checkout_locked_repo.py yuhui1038/Muse
 ```
 
