@@ -1,0 +1,11 @@
+Dataset,Modality,Typical_use,Scale,Official_URL,Access_note,Era
+Million Song Dataset,audio features + metadata,MIR / large-scale retrieval,"1,000,000 tracks (features/metadata; no raw audio)",https://millionsongdataset.com/,open metadata/features; audio not bundled,classic
+AudioSet,general audio / music events,pretraining / event recognition,"2,084,320 human-labeled 10-second clips",https://research.google.com/audioset/,YouTube-derived clips; ontology/labels public,classic
+FMA,music audio + metadata,genre / MIR / representation,"106,574 tracks",https://github.com/mdeff/fma,Creative Commons audio; code/data public,classic
+MTG-Jamendo,music audio + tags,music tagging / representation,"55k+ full tracks, 195 tags",https://mtg.github.io/mtg-jamendo-dataset/,research/non-commercial conditions; metadata/code public,classic
+Lakh MIDI Dataset,symbolic MIDI,symbolic modeling / generation,176k+ unique MIDI files,https://colinraffel.com/projects/lmd/,symbolic data; matching code available,classic
+MAESTRO,aligned piano audio + MIDI,transcription / generation / performance,~200 h aligned audio and MIDI,https://magenta.tensorflow.org/datasets/maestro,CC BY-NC-SA 4.0; versioned downloads,classic
+MUSDB18,mixtures + stems,source separation,150 full tracks (~10 h),https://sigsep.github.io/datasets/musdb.html,academic-use access; stems included,classic
+MusicCaps,music audio + text captions,text-music generation / retrieval,5.5k expert-written captions,https://www.kaggle.com/datasets/googleai/musiccaps,YouTube-linked audio; captions public,foundation-era
+MusicBench (Mustango),music fragments + rich music-specific captions,controllable text-to-music,52k music fragments,https://github.com/AMAAI-Lab/mustango,dataset/model links in official repository,foundation-era
+CMI-Bench,music instruction benchmark,music instruction following,14 MIR instruction tasks from 20 source datasets,https://github.com/nicolaus625/CMI-bench,benchmark assembly public; source licenses vary,foundation-era
