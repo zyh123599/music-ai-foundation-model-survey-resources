@@ -1,23 +1,19 @@
-# Reproduction layer
+# Reproducibility checks
 
-This directory tracks the official repositories used in the survey resource audit.
+This directory tracks a representative subset of open systems from the survey. It separates four questions that are often collapsed into “open source”:
 
-`official_repos.csv` contains 49 GitHub repositories associated with papers or project releases in the locked 2024–2026 source audit. The table keeps code, weights and data status separate because a public repository does not necessarily reproduce the training setup or the reported results.
+1. Is the official repository still reachable?
+2. Can the software environment be installed?
+3. Are the required checkpoints and data obtainable?
+4. Does a minimal inference or evaluation command run at the locked source revision?
 
-## Fetch the repositories
+The first pass locks 20 repositories to exact commit SHAs. Runtime fields start as `NOT_TESTED`; they are updated only after a command has actually been run.
 
-```bash
-python scripts/clone_official_repos.py --dest external
-```
+Files:
 
-The script clones each official repository into `external/<owner>__<repo>/`. It does not copy those projects into this repository and does not change their licenses.
+- `representative_source_locks.csv` — exact source revisions used by the audit.
+- `reproduction_matrix.csv` — execution status for the selected systems.
+- `repository_changes.csv` — URLs that changed or became unavailable after the earlier source audit.
+- `systems/` — per-system notes and smoke-test entry points.
 
-Use `--domain` to fetch one part of the survey at a time:
-
-```bash
-python scripts/clone_official_repos.py --domain "Generation" --dest external
-```
-
-## What we still want to record
-
-The next pass will add an exact commit or release identifier for repositories used in reproducibility checks, plus a small smoke-test record for selected systems. A repository that cannot be installed or run will be reported as such; it will not be treated as evidence that the underlying scientific method failed.
+`NOT_TESTED` is intentionally different from `FAIL`. A failed install or inference attempt is recorded only after the corresponding command has been executed and its log retained.
