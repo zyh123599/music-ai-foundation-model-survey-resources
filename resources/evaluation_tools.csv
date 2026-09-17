@@ -1,0 +1,6 @@
+Resource,Type,Area,URL,Note
+mir_eval,reference metric implementation,MIR evaluation,https://github.com/craffel/mir_eval,shared implementations reduce metric mismatch
+mirdata,dataset access/version validation,MIR datasets,https://github.com/mir-dataset-loaders/mirdata,standardized loading and version validation
+MIREX evaluation infrastructure,community evaluation,MIR benchmarks,https://www.music-ir.org/mirex/wiki/MIREX_HOME,task-specific shared evaluation
+CMI-RewardBench,reward-model benchmark,music reward / preference,https://github.com/Haiwen-Xia/CMI-RewardBench,locked official code in Phase-1 audit
+MusicDET,AI-generated music detection,robustness / detection,https://github.com/Chaolei98/MusicDET,official repository; detector checkpoint availability differs by component
