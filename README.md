@@ -31,7 +31,7 @@ The source audit contains 49 GitHub repositories associated with papers or proje
 
 A representative set of 20 systems is pinned to exact revisions in [`repro/representative_source_locks.csv`](repro/representative_source_locks.csv). The current execution matrix is in [`repro/reproduction_matrix.csv`](repro/reproduction_matrix.csv).
 
-The first documentation pass checks whether the official repository actually gives an install command, an inference entry point, and an evaluation entry point. Results for 14 systems are in [`repro/ENTRYPOINT_AUDIT.md`](repro/ENTRYPOINT_AUDIT.md) and [`repro/entrypoint_audit.csv`](repro/entrypoint_audit.csv).
+All 20 source-locked systems have been checked for documented installation, inference, and evaluation entry points. The compact result is in [`repro/ENTRYPOINT_AUDIT.md`](repro/ENTRYPOINT_AUDIT.md); exact commands and notes are in [`repro/entrypoint_audit.csv`](repro/entrypoint_audit.csv). Each system also has a short page under [`repro/systems/`](repro/systems/).
 
 Runtime fields remain `NOT_TESTED` until a command has actually been executed. A missing or changed repository URL is recorded separately in [`repro/repository_changes.csv`](repro/repository_changes.csv).
 
@@ -41,7 +41,13 @@ To fetch the audited repositories without copying third-party code into this rep
 python scripts/clone_official_repos.py --dest external
 ```
 
-A single area can be fetched with `--domain`. The script only clones repositories; it does not install dependencies or download weights.
+For a source-locked system, use the exact-revision helper instead of the moving default branch:
+
+```bash
+python scripts/checkout_locked_repo.py yuhui1038/Muse
+```
+
+The execution procedure is documented in [`repro/RUNBOOK.md`](repro/RUNBOOK.md).
 
 ## Snapshot
 
@@ -52,7 +58,7 @@ The main source audit used for this version was locked on **2026-09-07**. Reposi
 - 62 paper/project records with an official code or project URL in the locked database
 - 49 records point to GitHub repositories
 - 20 representative repositories pinned to exact commit SHAs
-- 14 representative systems checked for documented install/inference/evaluation entry points
+- 20/20 representative systems checked for documented install/inference/evaluation entry points
 
 These numbers are a dated snapshot. Projects may release code, weights, or data after the audit date.
 
@@ -84,6 +90,7 @@ python scripts/filter_resources.py resources/papers/reviewed_papers_2026.csv --c
 python scripts/check_urls.py resources/models/generation.csv --column Resource_URL
 python scripts/summarize_releases.py
 python repro/verify_source_locks.py
+python scripts/checkout_locked_repo.py yuhui1038/Muse
 ```
 
 They use only the Python standard library.
