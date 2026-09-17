@@ -25,6 +25,20 @@ The detailed registry is split by area under [`resources/models/`](resources/mod
 - [`resources/evaluation_tools.csv`](resources/evaluation_tools.csv) and [`docs/evaluation.md`](docs/evaluation.md)
 - [`docs/status.md`](docs/status.md) explains the release/status fields
 
+### Official repositories and reproduction helpers
+
+The locked audit currently contains 49 GitHub repositories associated with papers or project releases. They are listed in [`repro/official_repos.csv`](repro/official_repos.csv).
+
+To fetch them without copying third-party code into this repository:
+
+```bash
+python scripts/clone_official_repos.py --dest external
+```
+
+A single area can be fetched with `--domain`. The script only clones repositories; it does not install dependencies or download weights.
+
+See [`repro/README.md`](repro/README.md) for the current reproduction plan.
+
 ## Snapshot
 
 The source audit used for this version was locked on **2026-09-07**.
@@ -32,6 +46,7 @@ The source audit used for this version was locked on **2026-09-07**.
 - 120 papers reviewed from 2024–2026
 - 77 peer-reviewed CCF A/B core papers in the main source audit
 - 62 paper/project records with an official code or project URL in the locked database
+- 49 of those records point to GitHub repositories
 
 These numbers are a dated snapshot. Projects may release code, weights, or data after the audit date.
 
@@ -61,6 +76,7 @@ If a row says that no official code was located, read it as **not verified by th
 ```bash
 python scripts/filter_resources.py resources/papers/reviewed_papers_2026.csv --core
 python scripts/check_urls.py resources/models/generation.csv --column Resource_URL
+python scripts/summarize_releases.py
 ```
 
 They use only the Python standard library.
