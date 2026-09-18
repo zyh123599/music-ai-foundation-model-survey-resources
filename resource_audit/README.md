@@ -2,12 +2,27 @@
 
 This directory records which public resources were checked for the survey and when.
 
-- `checked_revisions.csv` lists dated GitHub revisions that were inspected. A checked revision is not a claim that the code was run or reproduced.
-- `resource_updates_2026-09-18.csv` records the 11 papers whose resource status was resolved after the original Phase-1 source lock.
-- `repository_changes.csv` keeps links that were present in an earlier audit but could not be resolved at a later check.
-- `coverage_by_year.csv` and `coverage_by_area.csv` summarize the current resource-index coverage.
-- `duplicate_title_candidates.csv` keeps possible duplicate corpus entries for manual review; it does not remove papers automatically.
+The original Phase-1 source lock is dated **2026-09-07**. GitHub revisions and later release checks were added on **2026-09-17–18**. The dated update files are kept instead of rewriting the history of the original audit.
 
-The main paper-to-resource table is `../resources/paper_resource_crosswalk.csv`. The task/model-side fields are under `../resources/technical/`.
+## Files
 
-The repository does not copy third-party model code, checkpoints, or datasets. Their own licenses and access terms still apply.
+- `checked_revisions.csv` — GitHub revisions inspected during the resource checks. A revision lock is not a claim that the code was run.
+- `repository_changes.csv` — links that were present in an earlier audit but stopped resolving later.
+- `resource_updates_2026-09-18*.csv` — successive batches that filled previously unresolved resource fields.
+- `no_official_code_after_search_2026-09-18.csv` — final targeted searches that did not locate official code.
+- `coverage_by_year.csv` and `coverage_by_area.csv` — current coverage counts.
+- `duplicate_title_candidates.csv` — possible duplicate corpus entries held for manual review.
+- `title_corrections.csv` — canonical-title corrections kept separate from the stable corpus join key.
+
+## Current state
+
+All 120 corpus rows now have a resource status:
+
+- 93 have a checked public resource entry;
+- 26 have a dated targeted-search result with no official code located;
+- 1 is a duplicate-title candidate;
+- 0 remain unindexed.
+
+The main paper-to-resource table is [`../resources/paper_resource_crosswalk.csv`](../resources/paper_resource_crosswalk.csv). Task, architecture, input/output, parameter-count and dataset fields are under [`../resources/technical/`](../resources/technical/).
+
+Third-party code, checkpoints and datasets are not copied into this repository. Their own licenses and access terms apply.
