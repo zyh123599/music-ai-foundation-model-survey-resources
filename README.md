@@ -2,7 +2,7 @@
 
 Companion resources for **Music Foundation Models: A Survey of Recent Developments, Evaluation, and Open Problems**.
 
-This repository is the resource index behind the survey. It is meant to make the paper trail easy to check: which papers have an official release, where the code or project page is, what checkpoint or data status was recorded, which benchmarks are tied to which papers, and when a repository link was last checked.
+The repository keeps the paper corpus and the public resources that were checked while writing the survey. The aim is simple: make it easy to move from a paper to its code, model release, dataset, benchmark, demo, or project page without hiding uncertainty behind a single “open source” label.
 
 ## At a glance
 
@@ -10,38 +10,42 @@ This repository is the resource index behind the survey. It is meant to make the
 |---|---:|
 | papers in the 2024–2026 review corpus | 120 |
 | peer-reviewed CCF A/B core papers | 77 |
-| papers with a checked positive code/project/challenge resource entry | 73 |
-| GitHub resource records in the paper crosswalk | 60 |
-| GitHub revisions resolved in the current audit | 58 |
-| GitHub links unresolved at the latest check | 2 |
-| dataset entries | 10 |
+| rows with a checked public resource | 93 |
+| targeted searches with no official code located | 26 |
+| duplicate-title candidates awaiting review | 1 |
+| primary resource entries pointing to GitHub | 72 |
+| concrete Git revisions recorded | 71 |
+| older GitHub links unresolved at later check | 2 |
+| dataset entries | 11 |
 | benchmark entries | 10 |
 | shared evaluation-tool entries | 5 |
 
-The Phase-1 source audit was locked on **2026-09-07**. Repository links were checked on **2026-09-17**, and an additional targeted resource pass on **2026-09-18** resolved 11 papers that had previously been left as `Not indexed`.
+Every corpus row now has a resource status. There are no remaining `NOT_INDEXED` rows.
+
+The Phase-1 source audit was locked on **2026-09-07**. Repository links and later releases were checked again on **2026-09-17–18**.
 
 ## Start here
 
-- [`resources/paper_resource_crosswalk.csv`](resources/paper_resource_crosswalk.csv) — one-row-per-paper resource crosswalk
-- [`resources/technical/`](resources/technical/) — task, input/output, architecture, parameter-count and dataset fields from the 120-paper source audit
-- [`resources/papers/`](resources/papers/) — reviewed papers split by year
-- [`resources/models/`](resources/models/) — detailed model/code records split by area
+- [`resources/paper_resource_crosswalk.csv`](resources/paper_resource_crosswalk.csv) — all 120 papers with code/project/model/data status
+- [`resources/technical/`](resources/technical/) — task, input/output, architecture, parameter count and dataset fields
+- [`resources/papers/`](resources/papers/) — review corpus split by year
+- [`resources/models/`](resources/models/) — resource records split by area
 - [`resources/datasets.csv`](resources/datasets.csv) — datasets
-- [`resources/benchmarks.csv`](resources/benchmarks.csv) — benchmark releases
+- [`resources/benchmarks.csv`](resources/benchmarks.csv) — benchmarks
 - [`resources/evaluation_tools.csv`](resources/evaluation_tools.csv) — shared evaluation tools
-- [`resource_audit/resource_updates_2026-09-18.csv`](resource_audit/resource_updates_2026-09-18.csv) — dated additions after the original source lock
-- [`resource_audit/checked_revisions.csv`](resource_audit/checked_revisions.csv) — dated GitHub revisions
-- [`resource_audit/repository_changes.csv`](resource_audit/repository_changes.csv) — links that changed or stopped resolving
-- [`docs/resource_crosswalk.md`](docs/resource_crosswalk.md) — how to read the resource crosswalk
-- [`docs/technical_crosswalk.md`](docs/technical_crosswalk.md) — what is in the technical crosswalk
-- [`docs/resource_coverage.md`](docs/resource_coverage.md) — coverage counts by year and area
+- [`resource_audit/AUDIT_STATUS.md`](resource_audit/AUDIT_STATUS.md) — current audit totals
+- [`resource_audit/checked_revisions.csv`](resource_audit/checked_revisions.csv) — dated Git revisions
+- [`resource_audit/no_official_code_after_search_2026-09-18.csv`](resource_audit/no_official_code_after_search_2026-09-18.csv) — final targeted no-code searches
+- [`docs/resource_coverage.md`](docs/resource_coverage.md) — coverage by year and area
 - [`docs/status.md`](docs/status.md) — field meanings
 
-## What “checked” means
+## What the status means
 
-A public repository, a released checkpoint, and public training data are separate things, so the tables keep them separate. If a row says that no official code was located, that means no release was verified in the targeted search by the recorded check date. It is not proof that no release exists.
+Code, checkpoints, data, benchmarks and project pages are recorded separately. A paper with a demo page but no verified code is not marked as an open-source implementation. An empty official repository is also kept distinct from a released implementation.
 
-A checked Git revision is only a record of what was inspected. We do not claim that the linked repositories were installed or reproduced.
+Likewise, “no official code located” is a dated search result. It does not mean that code can never appear later.
+
+The Git revision field records the version inspected during the resource check. It is not a reproduction claim.
 
 ## Repository layout
 
@@ -54,13 +58,18 @@ resources/
   datasets.csv
   benchmarks.csv
   evaluation_tools.csv
+
 resource_audit/
+  AUDIT_STATUS.md
   checked_revisions.csv
   repository_changes.csv
-  resource_updates_2026-09-18.csv
+  resource_updates_2026-09-18*.csv
+  no_official_code_after_search_2026-09-18.csv
   duplicate_title_candidates.csv
+  title_corrections.csv
   coverage_by_year.csv
   coverage_by_area.csv
+
 docs/
   models.md
   datasets.md
@@ -70,6 +79,7 @@ docs/
   technical_crosswalk.md
   resource_coverage.md
   status.md
+
 scripts/
   check_urls.py
   filter_resources.py
@@ -79,14 +89,13 @@ scripts/
   checkout_checked_revision.py
 ```
 
-## Helper scripts
+## Small helper scripts
 
-The scripts work on metadata or fetch official repositories. They do not install models or download checkpoints.
+The scripts operate on metadata or fetch upstream repositories. They do not install models or download checkpoints.
 
 ```bash
 python scripts/filter_resources.py resources/papers/reviewed_papers_2026.csv --core
 python scripts/check_urls.py resources/models/generation.csv --column Resource_URL
-python scripts/summarize_releases.py
 python scripts/summarize_technical_crosswalk.py
 python scripts/clone_official_repos.py --dest external
 python scripts/checkout_checked_revision.py yuhui1038/Muse
@@ -98,7 +107,7 @@ Corrections and newly released official links are welcome. See [`CONTRIBUTING.md
 
 ## Third-party material
 
-Papers, code, model weights, datasets, and demos linked here keep their own licenses and terms. This repository stores metadata and small helper scripts; it does not mirror those third-party assets.
+Papers, code, model weights, datasets and demos linked here keep their own licenses and terms. This repository stores metadata and small helper scripts; it does not mirror third-party assets.
 
 ## Citation
 
