@@ -1,0 +1,2 @@
+Corpus_title,Canonical_title,Venue,Year,Persistent_ID,Checked_date,Note
+"AI-Generated Music Detection Challenges and Solutions","AI-Generated Music Detection and its Challenges",ICASSP,2025,"DOI:10.1109/ICASSP49660.2025.10890655; arXiv:2501.10111",2026-09-18,"The corpus row is retained for join stability; official paper and Deezer repository use the canonical title."
