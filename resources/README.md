@@ -1,6 +1,10 @@
 # Resource files
 
-The paper corpus and model/code registries are split into smaller CSV files so they are easier to inspect and update.
+The paper corpus and resource registries are split into small CSV files so they are easy to inspect and update.
+
+## Main crosswalk
+
+- `paper_resource_crosswalk.csv` joins all 120 reviewed papers with the resource audit: official code/project link, release status, checkpoint notes, data notes, benchmark flag, and checked Git revision when available.
 
 ## Reviewed papers
 
@@ -12,7 +16,7 @@ Together they contain the 120-paper 2024–2026 review corpus used by the survey
 
 ## Models and official project links
 
-The code/resource registry is split by evidence domain under `models/`:
+The detailed resource registry is split by area under `models/`:
 
 - `editing_control.csv`
 - `evaluation_robustness.csv`
@@ -23,7 +27,7 @@ The code/resource registry is split by evidence domain under `models/`:
 - `separation_restoration_production.csv`
 - `singing_transcription_performance.csv`
 
-These files record the official project or repository URL found during the source audit, along with the checkpoint/data status that was verified at the time.
+These files keep the longer checkpoint and data notes that would make the main crosswalk unwieldy.
 
 ## Other registries
 
@@ -31,4 +35,4 @@ These files record the official project or repository URL found during the sourc
 - `benchmarks.csv`
 - `evaluation_tools.csv`
 
-The audit date is stored in the CSV rows. A missing release should be read as “not verified by that date,” not as proof that a release does not exist.
+The audit date is stored in the rows. A missing release should be read as “not verified by that date,” not as proof that a release does not exist.
