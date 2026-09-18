@@ -8,11 +8,10 @@ The repository keeps the paper corpus and the public resources that were checked
 
 | Item | Count |
 |---|---:|
-| papers in the 2024–2026 review corpus | 120 |
+| unique works in the 2024–2026 review corpus | 119 |
 | peer-reviewed CCF A/B core papers | 77 |
-| rows with a checked public resource | 93 |
+| works with a checked public resource | 93 |
 | targeted searches with no official code located | 26 |
-| duplicate-title candidates awaiting review | 1 |
 | primary resource entries pointing to GitHub | 72 |
 | concrete Git revisions recorded | 71 |
 | older GitHub links unresolved at later check | 2 |
@@ -20,13 +19,15 @@ The repository keeps the paper corpus and the public resources that were checked
 | benchmark entries | 10 |
 | shared evaluation-tool entries | 5 |
 
-Every corpus row now has a resource status. There are no remaining `NOT_INDEXED` rows.
+The initial Phase-1 database contained 120 rows. A later source check found that **Affective and Controllable Symbolic Music Performance** and **SyMuPe: Affective and Controllable Symbolic Music Performance** were the same ACM MM 2025 paper, so the public corpus now contains **119 unique works**. The correction is recorded in [`resource_audit/corpus_corrections.csv`](resource_audit/corpus_corrections.csv).
+
+Every remaining corpus row has a resource status. There are no `NOT_INDEXED` rows.
 
 The Phase-1 source audit was locked on **2026-09-07**. Repository links and later releases were checked again on **2026-09-17–18**.
 
 ## Start here
 
-- [`resources/paper_resource_crosswalk.csv`](resources/paper_resource_crosswalk.csv) — all 120 papers with code/project/model/data status
+- [`resources/paper_resource_crosswalk.csv`](resources/paper_resource_crosswalk.csv) — all 119 works with code/project/model/data status
 - [`resources/technical/`](resources/technical/) — task, input/output, architecture, parameter count and dataset fields
 - [`resources/papers/`](resources/papers/) — review corpus split by year
 - [`resources/models/`](resources/models/) — resource records split by area
@@ -61,6 +62,7 @@ resources/
 
 resource_audit/
   AUDIT_STATUS.md
+  corpus_corrections.csv
   checked_revisions.csv
   repository_changes.csv
   resource_updates_2026-09-18*.csv
