@@ -1,10 +1,10 @@
-Area,Papers,CCF_AB_core,Checked_resource_entry,GitHub_resource,No_official_code_located,Duplicate_candidate,Not_indexed
-Editing / control,20,11,16,10,3,1,0
-Music understanding / Music-LM,12,12,11,10,1,0,0
-Separation / restoration / production,11,7,8,8,3,0,0
-Representation / codec,15,7,13,10,2,0,0
-Evaluation / robustness,17,14,14,10,3,0,0
-Symbolic,8,3,4,4,4,0,0
-Generation,16,10,11,9,5,0,0
-Multimodal,12,11,9,6,3,0,0
-Singing / transcription / performance,9,2,7,5,2,0,0
+Area,Papers,CCF_AB_core,Checked_resource_entry,GitHub_resource,No_official_code_located,Not_indexed
+Editing / control,19,11,16,10,3,0
+Music understanding / Music-LM,12,12,11,10,1,0
+Separation / restoration / production,11,7,8,8,3,0
+Representation / codec,15,7,13,10,2,0
+Evaluation / robustness,17,14,14,10,3,0
+Symbolic,8,3,4,4,4,0
+Generation,16,10,11,9,5,0
+Multimodal,12,11,9,6,3,0
+Singing / transcription / performance,9,2,7,5,2,0
