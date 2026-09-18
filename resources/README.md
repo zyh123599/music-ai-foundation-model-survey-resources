@@ -1,10 +1,12 @@
 # Resource files
 
-The paper corpus and resource registries are split into small CSV files so they are easy to inspect and update.
+The corpus and resource tables are kept as small CSV files so they are easy to inspect and update.
 
 ## Main crosswalk
 
-- `paper_resource_crosswalk.csv` joins all 120 reviewed papers with the resource audit: official code/project link, release status, checkpoint notes, data notes, benchmark flag, and checked Git revision when available.
+`paper_resource_crosswalk.csv` has one row for each of the 120 corpus entries. It records the paper URL, primary public resource, resource type, code status, checkpoint notes, data-access notes, benchmark flag and checked revision when available.
+
+All 120 rows now have a resource status.
 
 ## Technical crosswalk
 
@@ -14,7 +16,7 @@ The files under `technical/` keep the task and model-side fields recorded during
 - `technical/paper_technical_crosswalk_2025.csv`
 - `technical/paper_technical_crosswalk_2026.csv`
 
-Together they contain 120 rows. They include task, input, output, model architecture, parameter count, dataset, benchmark flag, code/project link, checkpoint notes, data-access notes, and checked revision when applicable.
+Together they contain 120 rows and cover task, input, output, architecture, parameter count, dataset and public-resource fields.
 
 ## Reviewed papers
 
@@ -22,9 +24,7 @@ Together they contain 120 rows. They include task, input, output, model architec
 - `papers/reviewed_papers_2025.csv`
 - `papers/reviewed_papers_2026.csv`
 
-Together they contain the 120-paper 2024–2026 review corpus used by the survey.
-
-## Models and official project links
+## Models and project resources
 
 The detailed resource registry is split by area under `models/`:
 
@@ -38,12 +38,10 @@ The detailed resource registry is split by area under `models/`:
 - `singing_transcription_performance.csv`
 - `symbolic.csv`
 
-These files keep the longer checkpoint and data notes that would make the main crosswalk unwieldy.
-
 ## Other registries
 
 - `datasets.csv`
 - `benchmarks.csv`
 - `evaluation_tools.csv`
 
-Resource checks are dated. A missing release should be read as “not verified by that date,” not as proof that a release does not exist.
+Resource checks are dated. “No official code located” means no release was verified in that search, not that a release cannot exist.
