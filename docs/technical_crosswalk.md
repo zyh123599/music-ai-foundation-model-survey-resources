@@ -17,4 +17,6 @@ For each paper, where the audit contains the information, they record:
 
 The files are split by year: 10 papers from 2024, 59 from 2025, and 51 from 2026.
 
-These are audit fields, not reconstructed metadata. A blank or `Unknown / not yet verified` cell is deliberately unresolved.
+The technical fields retain the Phase-1 audit wording. Resource fields may include later dated checks; the 2026-09-18 additions are listed separately in [`resource_audit/resource_updates_2026-09-18.csv`](../resource_audit/resource_updates_2026-09-18.csv).
+
+A blank or `Unknown / not yet verified` cell is deliberately unresolved.
