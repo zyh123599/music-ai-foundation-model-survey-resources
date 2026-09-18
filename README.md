@@ -10,15 +10,15 @@ This repository is the resource index behind the survey. It is meant to make the
 |---|---:|
 | papers in the 2024–2026 review corpus | 120 |
 | peer-reviewed CCF A/B core papers | 77 |
-| papers with a checked positive code/project/challenge resource entry | 62 |
-| GitHub repositories in the resource audit | 49 |
-| GitHub revisions resolved on 2026-09-17 | 47 |
-| GitHub links unresolved on that check | 2 |
+| papers with a checked positive code/project/challenge resource entry | 73 |
+| GitHub resource records in the paper crosswalk | 60 |
+| GitHub revisions resolved in the current audit | 58 |
+| GitHub links unresolved at the latest check | 2 |
 | dataset entries | 10 |
 | benchmark entries | 10 |
 | shared evaluation-tool entries | 5 |
 
-The counts are a dated snapshot. New releases after the audit date may not be included yet.
+The Phase-1 source audit was locked on **2026-09-07**. Repository links were checked on **2026-09-17**, and an additional targeted resource pass on **2026-09-18** resolved 11 papers that had previously been left as `Not indexed`.
 
 ## Start here
 
@@ -29,6 +29,7 @@ The counts are a dated snapshot. New releases after the audit date may not be in
 - [`resources/datasets.csv`](resources/datasets.csv) — datasets
 - [`resources/benchmarks.csv`](resources/benchmarks.csv) — benchmark releases
 - [`resources/evaluation_tools.csv`](resources/evaluation_tools.csv) — shared evaluation tools
+- [`resource_audit/resource_updates_2026-09-18.csv`](resource_audit/resource_updates_2026-09-18.csv) — dated additions after the original source lock
 - [`resource_audit/checked_revisions.csv`](resource_audit/checked_revisions.csv) — dated GitHub revisions
 - [`resource_audit/repository_changes.csv`](resource_audit/repository_changes.csv) — links that changed or stopped resolving
 - [`docs/resource_crosswalk.md`](docs/resource_crosswalk.md) — how to read the resource crosswalk
@@ -38,11 +39,9 @@ The counts are a dated snapshot. New releases after the audit date may not be in
 
 ## What “checked” means
 
-The main source audit was locked on **2026-09-07**. GitHub repository reachability and revisions were checked again on **2026-09-17**.
+A public repository, a released checkpoint, and public training data are separate things, so the tables keep them separate. If a row says that no official code was located, that means no release was verified in the targeted search by the recorded check date. It is not proof that no release exists.
 
-A public repository, a released checkpoint, and public training data are separate things, so the tables keep them separate. If a row says that no official code was located, that means no release was verified in the targeted search by the audit date. It is not proof that no release exists.
-
-The checked Git revision is only a record of what was inspected. We do not claim that those repositories were installed or reproduced.
+A checked Git revision is only a record of what was inspected. We do not claim that the linked repositories were installed or reproduced.
 
 ## Repository layout
 
@@ -58,6 +57,8 @@ resources/
 resource_audit/
   checked_revisions.csv
   repository_changes.csv
+  resource_updates_2026-09-18.csv
+  duplicate_title_candidates.csv
   coverage_by_year.csv
   coverage_by_area.csv
 docs/
