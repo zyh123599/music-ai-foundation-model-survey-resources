@@ -11,17 +11,19 @@ The original Phase-1 source lock is dated **2026-09-07**. GitHub revisions and l
 - `resource_updates_2026-09-18*.csv` — successive batches that filled previously unresolved resource fields.
 - `no_official_code_after_search_2026-09-18.csv` — final targeted searches that did not locate official code.
 - `coverage_by_year.csv` and `coverage_by_area.csv` — current coverage counts.
-- `duplicate_title_candidates.csv` — possible duplicate corpus entries held for manual review.
-- `title_corrections.csv` — canonical-title corrections kept separate from the stable corpus join key.
+- `duplicate_title_candidates.csv` — the SyMuPe duplicate investigation and final disposition.
+- `corpus_corrections.csv` — changes to the public corpus after source reconciliation.
+- `title_corrections.csv` — canonical-title corrections kept separate from stable join keys where needed.
 
 ## Current state
 
-All 120 corpus rows now have a resource status:
+The public corpus now contains **119 unique works**:
 
 - 93 have a checked public resource entry;
 - 26 have a dated targeted-search result with no official code located;
-- 1 is a duplicate-title candidate;
 - 0 remain unindexed.
+
+The initial Phase-1 database contained 120 rows. The short title `Affective and Controllable Symbolic Music Performance` was confirmed to be the same ACM MM 2025 paper as `SyMuPe: Affective and Controllable Symbolic Music Performance` and was removed from the public corpus.
 
 The main paper-to-resource table is [`../resources/paper_resource_crosswalk.csv`](../resources/paper_resource_crosswalk.csv). Task, architecture, input/output, parameter-count and dataset fields are under [`../resources/technical/`](../resources/technical/).
 
