@@ -6,6 +6,16 @@ The paper corpus and resource registries are split into small CSV files so they 
 
 - `paper_resource_crosswalk.csv` joins all 120 reviewed papers with the resource audit: official code/project link, release status, checkpoint notes, data notes, benchmark flag, and checked Git revision when available.
 
+## Technical crosswalk
+
+The files under `technical/` keep the task and model-side fields recorded during the source audit:
+
+- `technical/paper_technical_crosswalk_2024.csv`
+- `technical/paper_technical_crosswalk_2025.csv`
+- `technical/paper_technical_crosswalk_2026.csv`
+
+Together they contain 120 rows. They include task, input, output, model architecture, parameter count, dataset, benchmark flag, code/project link, checkpoint notes, data-access notes, and checked revision when applicable.
+
 ## Reviewed papers
 
 - `papers/reviewed_papers_2024.csv`
