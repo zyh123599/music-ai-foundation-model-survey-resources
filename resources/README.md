@@ -4,19 +4,19 @@ The corpus and resource tables are kept as small CSV files so they are easy to i
 
 ## Main crosswalk
 
-`paper_resource_crosswalk.csv` has one row for each of the 120 corpus entries. It records the paper URL, primary public resource, resource type, code status, checkpoint notes, data-access notes, benchmark flag and checked revision when available.
+`paper_resource_crosswalk.csv` has one row for each of the **119 unique works** in the public corpus. It records the paper URL, primary public resource, resource type, code status, checkpoint notes, data-access notes, benchmark flag and checked revision when available.
 
-All 120 rows now have a resource status.
+Every row has a resource status.
 
 ## Technical crosswalk
 
 The files under `technical/` keep the task and model-side fields recorded during the source audit:
 
-- `technical/paper_technical_crosswalk_2024.csv`
-- `technical/paper_technical_crosswalk_2025.csv`
-- `technical/paper_technical_crosswalk_2026.csv`
+- `technical/paper_technical_crosswalk_2024.csv` — 10 works
+- `technical/paper_technical_crosswalk_2025.csv` — 58 works
+- `technical/paper_technical_crosswalk_2026.csv` — 51 works
 
-Together they contain 120 rows and cover task, input, output, architecture, parameter count, dataset and public-resource fields.
+Together they contain 119 unique works and cover task, input, output, architecture, parameter count, dataset and public-resource fields.
 
 ## Reviewed papers
 
