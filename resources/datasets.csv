@@ -9,3 +9,4 @@ MUSDB18,mixtures + stems,source separation,150 full tracks (~10 h),https://sigse
 MusicCaps,music audio + text captions,text-music generation / retrieval,5.5k expert-written captions,https://www.kaggle.com/datasets/googleai/musiccaps,YouTube-linked audio; captions public,foundation-era
 MusicBench (Mustango),music fragments + rich music-specific captions,controllable text-to-music,52k music fragments,https://github.com/AMAAI-Lab/mustango,dataset/model links in official repository,foundation-era
 CMI-Bench,music instruction benchmark,music instruction following,14 MIR instruction tasks from 20 source datasets,https://github.com/nicolaus625/CMI-bench,benchmark assembly public; source licenses vary,foundation-era
+FoleyBench,video + audio + text,video-to-audio / Foley evaluation,"5,000 ~10 s video-audio-text triplets; FoleyBench-Long 650 x 30 s",https://huggingface.co/datasets/FoleyBench/foleybench,gated; CC BY-NC-SA 4.0; academic research only,foundation-model benchmark
