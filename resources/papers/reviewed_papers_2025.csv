@@ -40,7 +40,6 @@ GETMusic,IJCAI,2025,Symbolic,NO_TIER_C,,,,,
 NotaGen: Advancing Musicality in Symbolic Music Generation with Large Language Model Training Paradigms,IJCAI,2025,Symbolic,YES,DOI:10.24963/ijcai.2025/1134; arXiv:2502.18008,https://www.ijcai.org/proceedings/2025/1134,NO_OFFICIAL_CODE_LOCATED_AFTER_TARGETED_SEARCH_2026-09-07,NO_OFFICIAL_CODE_LOCATED_AFTER_TARGETED_SEARCH_2026-09-07,2026-09-07
 METEOR,IJCAI,2025,Representation / codec,NO_TIER_C,,,,,
 Visual Piano Transcription,IJCAI,2025,Singing / transcription / performance,NO_TIER_C,,,,,
-Affective and Controllable Symbolic Music Performance,ACM MM,2025,Editing / control,NO_TIER_C,,,,,
 Controllable Video-to-Music Generation with Multiple Time-Varying Conditions,ACM MM,2025,Multimodal,YES,DOI:10.1145/3746027.3755656; arXiv:2507.20627,https://doi.org/10.1145/3746027.3755656,https://kita-wjx.github.io/MCV2M/,OFFICIAL_CODE_LOCKED,2026-09-07
 MusFlow: Multimodal Music Generation via Conditional Flow Matching,ACM MM,2025,Multimodal,YES,DOI:10.1145/3746027.3755482; arXiv:2504.13535,https://doi.org/10.1145/3746027.3755482,https://musflow.github.io/,PROJECT_PAGE_RELEASE_STATUS_PARTIAL,2026-09-07
 Temporal-Conditioned Symbolic Alignment for Controllable Text-to-Music Generation,ACM MM,2025,Editing / control,NO_TIER_C,,,,,
