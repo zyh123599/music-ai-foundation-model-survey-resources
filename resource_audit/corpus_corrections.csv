@@ -1,0 +1,2 @@
+Correction_type,Old_value,Canonical_value,Affected_scope,Checked_date,Note
+CORPUS_DUPLICATE_REMOVAL,"Affective and Controllable Symbolic Music Performance","SyMuPe: Affective and Controllable Symbolic Music Performance","2025 review corpus",2026-09-18,"The canonical ACM MM 2025 paper is DOI 10.1145/3746027.3755871. The short-title Phase-1 row had no independent source and duplicated the SyMuPe entry."
