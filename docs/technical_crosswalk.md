@@ -1,6 +1,6 @@
 # Technical crosswalk
 
-The three files under [`resources/technical/`](../resources/technical/) connect the 120-paper corpus to technical fields recorded during the source audit.
+The three files under [`resources/technical/`](../resources/technical/) connect the **119 unique works** in the public corpus to technical fields recorded during the source audit.
 
 For each paper, where the audit contains the information, they record:
 
@@ -15,8 +15,8 @@ For each paper, where the audit contains the information, they record:
 - data-access status;
 - checked GitHub revision.
 
-The files are split by year: 10 papers from 2024, 59 from 2025, and 51 from 2026.
+The files are split by year: 10 works from 2024, 58 from 2025, and 51 from 2026.
 
-The technical fields retain the Phase-1 audit wording. Resource fields may include later dated checks; the 2026-09-18 additions are listed separately in [`resource_audit/resource_updates_2026-09-18.csv`](../resource_audit/resource_updates_2026-09-18.csv).
+The technical fields retain the Phase-1 audit wording. Resource fields may include later dated checks. The duplicate-title correction is documented in [`resource_audit/corpus_corrections.csv`](../resource_audit/corpus_corrections.csv).
 
 A blank or `Unknown / not yet verified` cell is deliberately unresolved.
