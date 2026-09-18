@@ -36,6 +36,7 @@ The detailed resource registry is split by area under `models/`:
 - `representation_codec.csv`
 - `separation_restoration_production.csv`
 - `singing_transcription_performance.csv`
+- `symbolic.csv`
 
 These files keep the longer checkpoint and data notes that would make the main crosswalk unwieldy.
 
@@ -45,4 +46,4 @@ These files keep the longer checkpoint and data notes that would make the main c
 - `benchmarks.csv`
 - `evaluation_tools.csv`
 
-The audit date is stored in the rows. A missing release should be read as “not verified by that date,” not as proof that a release does not exist.
+Resource checks are dated. A missing release should be read as “not verified by that date,” not as proof that a release does not exist.
