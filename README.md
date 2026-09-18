@@ -2,7 +2,7 @@
 
 Companion resources for **Music Foundation Models: A Survey of Recent Developments, Evaluation, and Open Problems**.
 
-This repository is the resource index behind the survey. It is mainly for answering practical questions: which papers have an official release, where the code or project page is, whether checkpoints or data were found, which benchmark belongs to which paper, and when a link was last checked.
+This repository is the resource index behind the survey. It is meant to make the paper trail easy to check: which papers have an official release, where the code or project page is, what checkpoint or data status was recorded, which benchmarks are tied to which papers, and when a repository link was last checked.
 
 ## At a glance
 
@@ -10,7 +10,7 @@ This repository is the resource index behind the survey. It is mainly for answer
 |---|---:|
 | papers in the 2024–2026 review corpus | 120 |
 | peer-reviewed CCF A/B core papers | 77 |
-| paper/project records with a checked resource entry | 62 |
+| papers with a checked positive code/project/challenge resource entry | 62 |
 | GitHub repositories in the resource audit | 49 |
 | GitHub revisions resolved on 2026-09-17 | 47 |
 | GitHub links unresolved on that check | 2 |
@@ -22,7 +22,8 @@ The counts are a dated snapshot. New releases after the audit date may not be in
 
 ## Start here
 
-- [`resources/paper_resource_crosswalk.csv`](resources/paper_resource_crosswalk.csv) — 120-paper paper/resource crosswalk
+- [`resources/paper_resource_crosswalk.csv`](resources/paper_resource_crosswalk.csv) — one-row-per-paper resource crosswalk
+- [`resources/technical/`](resources/technical/) — task, input/output, architecture, parameter-count and dataset fields from the 120-paper source audit
 - [`resources/papers/`](resources/papers/) — reviewed papers split by year
 - [`resources/models/`](resources/models/) — detailed model/code records split by area
 - [`resources/datasets.csv`](resources/datasets.csv) — datasets
@@ -30,7 +31,9 @@ The counts are a dated snapshot. New releases after the audit date may not be in
 - [`resources/evaluation_tools.csv`](resources/evaluation_tools.csv) — shared evaluation tools
 - [`resource_audit/checked_revisions.csv`](resource_audit/checked_revisions.csv) — dated GitHub revisions
 - [`resource_audit/repository_changes.csv`](resource_audit/repository_changes.csv) — links that changed or stopped resolving
-- [`docs/resource_crosswalk.md`](docs/resource_crosswalk.md) — how to read the crosswalk
+- [`docs/resource_crosswalk.md`](docs/resource_crosswalk.md) — how to read the resource crosswalk
+- [`docs/technical_crosswalk.md`](docs/technical_crosswalk.md) — what is in the technical crosswalk
+- [`docs/resource_coverage.md`](docs/resource_coverage.md) — coverage counts by year and area
 - [`docs/status.md`](docs/status.md) — field meanings
 
 ## What “checked” means
@@ -47,6 +50,7 @@ The checked Git revision is only a record of what was inspected. We do not claim
 resources/
   papers/
   models/
+  technical/
   paper_resource_crosswalk.csv
   datasets.csv
   benchmarks.csv
@@ -54,17 +58,22 @@ resources/
 resource_audit/
   checked_revisions.csv
   repository_changes.csv
+  coverage_by_year.csv
+  coverage_by_area.csv
 docs/
   models.md
   datasets.md
   benchmarks.md
   evaluation.md
   resource_crosswalk.md
+  technical_crosswalk.md
+  resource_coverage.md
   status.md
 scripts/
   check_urls.py
   filter_resources.py
   summarize_releases.py
+  summarize_technical_crosswalk.py
   clone_official_repos.py
   checkout_checked_revision.py
 ```
@@ -77,6 +86,7 @@ The scripts work on metadata or fetch official repositories. They do not install
 python scripts/filter_resources.py resources/papers/reviewed_papers_2026.csv --core
 python scripts/check_urls.py resources/models/generation.csv --column Resource_URL
 python scripts/summarize_releases.py
+python scripts/summarize_technical_crosswalk.py
 python scripts/clone_official_repos.py --dest external
 python scripts/checkout_checked_revision.py yuhui1038/Muse
 ```
