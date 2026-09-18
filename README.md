@@ -1,109 +1,93 @@
 # Music AI Foundation Model Survey Resources
 
-Resources collected while writing **Music Foundation Models: A Survey of Recent Developments, Evaluation, and Open Problems**.
+Companion resources for **Music Foundation Models: A Survey of Recent Developments, Evaluation, and Open Problems**.
 
-This repository keeps paper links, official project pages, release status, datasets, benchmarks, evaluation tools, and reproducibility notes in one place. It does not mirror third-party model weights or datasets.
+This repository is the resource index behind the survey. It is mainly for answering practical questions: which papers have an official release, where the code or project page is, whether checkpoints or data were found, which benchmark belongs to which paper, and when a link was last checked.
 
-## What is here
+## At a glance
 
-### Review corpus
+| Item | Count |
+|---|---:|
+| papers in the 2024–2026 review corpus | 120 |
+| peer-reviewed CCF A/B core papers | 77 |
+| paper/project records with a checked resource entry | 62 |
+| GitHub repositories in the resource audit | 49 |
+| GitHub revisions resolved on 2026-09-17 | 47 |
+| GitHub links unresolved on that check | 2 |
+| dataset entries | 10 |
+| benchmark entries | 10 |
+| shared evaluation-tool entries | 5 |
 
-The 120-paper 2024–2026 corpus is split by year:
+The counts are a dated snapshot. New releases after the audit date may not be included yet.
 
-- [`resources/papers/reviewed_papers_2024.csv`](resources/papers/reviewed_papers_2024.csv)
-- [`resources/papers/reviewed_papers_2025.csv`](resources/papers/reviewed_papers_2025.csv)
-- [`resources/papers/reviewed_papers_2026.csv`](resources/papers/reviewed_papers_2026.csv)
+## Start here
 
-### Models and official code/project links
+- [`resources/paper_resource_crosswalk.csv`](resources/paper_resource_crosswalk.csv) — 120-paper paper/resource crosswalk
+- [`resources/papers/`](resources/papers/) — reviewed papers split by year
+- [`resources/models/`](resources/models/) — detailed model/code records split by area
+- [`resources/datasets.csv`](resources/datasets.csv) — datasets
+- [`resources/benchmarks.csv`](resources/benchmarks.csv) — benchmark releases
+- [`resources/evaluation_tools.csv`](resources/evaluation_tools.csv) — shared evaluation tools
+- [`resource_audit/checked_revisions.csv`](resource_audit/checked_revisions.csv) — dated GitHub revisions
+- [`resource_audit/repository_changes.csv`](resource_audit/repository_changes.csv) — links that changed or stopped resolving
+- [`docs/resource_crosswalk.md`](docs/resource_crosswalk.md) — how to read the crosswalk
+- [`docs/status.md`](docs/status.md) — field meanings
 
-The detailed registry is split by area under [`resources/models/`](resources/models/). A shorter readable index is in [`docs/models.md`](docs/models.md).
+## What “checked” means
 
-### Datasets, benchmarks, and evaluation
+The main source audit was locked on **2026-09-07**. GitHub repository reachability and revisions were checked again on **2026-09-17**.
 
-- [`resources/datasets.csv`](resources/datasets.csv) and [`docs/datasets.md`](docs/datasets.md)
-- [`resources/benchmarks.csv`](resources/benchmarks.csv) and [`docs/benchmarks.md`](docs/benchmarks.md)
-- [`resources/evaluation_tools.csv`](resources/evaluation_tools.csv) and [`docs/evaluation.md`](docs/evaluation.md)
-- [`docs/status.md`](docs/status.md) explains the release/status fields
+A public repository, a released checkpoint, and public training data are separate things, so the tables keep them separate. If a row says that no official code was located, that means no release was verified in the targeted search by the audit date. It is not proof that no release exists.
 
-### Official repositories and reproducibility checks
+The checked Git revision is only a record of what was inspected. We do not claim that those repositories were installed or reproduced.
 
-The source audit contains 49 GitHub repository links associated with papers or project releases. The original list is in [`repro/official_repos.csv`](repro/official_repos.csv). On 2026-09-17, 47 of those repositories were still reachable and were pinned to exact commit SHAs in [`repro/all_repo_source_locks.csv`](repro/all_repo_source_locks.csv); two older Tencent AI Lab URLs returned 404 and are retained in [`repro/repository_changes.csv`](repro/repository_changes.csv) instead of being silently removed.
+## Repository layout
 
-A representative set of 20 systems is used for deeper reproducibility checks in [`repro/representative_source_locks.csv`](repro/representative_source_locks.csv). The current execution matrix is in [`repro/reproduction_matrix.csv`](repro/reproduction_matrix.csv).
-
-All 20 representative systems have been checked for documented installation, inference, and evaluation entry points. The compact result is in [`repro/ENTRYPOINT_AUDIT.md`](repro/ENTRYPOINT_AUDIT.md); exact commands and notes are in [`repro/entrypoint_audit.csv`](repro/entrypoint_audit.csv). Each system also has a short page under [`repro/systems/`](repro/systems/).
-
-Runtime fields remain `NOT_TESTED` until a command has actually been executed. Documentation coverage and runtime success are intentionally kept separate.
-
-To fetch the audited repositories without copying third-party code into this repository:
-
-```bash
-python scripts/clone_official_repos.py --dest external
+```text
+resources/
+  papers/
+  models/
+  paper_resource_crosswalk.csv
+  datasets.csv
+  benchmarks.csv
+  evaluation_tools.csv
+resource_audit/
+  checked_revisions.csv
+  repository_changes.csv
+docs/
+  models.md
+  datasets.md
+  benchmarks.md
+  evaluation.md
+  resource_crosswalk.md
+  status.md
+scripts/
+  check_urls.py
+  filter_resources.py
+  summarize_releases.py
+  clone_official_repos.py
+  checkout_checked_revision.py
 ```
 
-For a source-locked system, use the exact-revision helper instead of the moving default branch:
+## Helper scripts
 
-```bash
-python scripts/checkout_locked_repo.py yuhui1038/Muse
-```
-
-The execution procedure is documented in [`repro/RUNBOOK.md`](repro/RUNBOOK.md).
-
-## Snapshot
-
-The main literature/source audit used for this version was locked on **2026-09-07**. Repository reachability and source revisions were checked again on **2026-09-17**.
-
-- 120 papers reviewed from 2024–2026
-- 77 peer-reviewed CCF A/B core papers in the main source audit
-- 62 paper/project records with an official code or project URL in the locked database
-- 49 GitHub repository links in the earlier audit
-- 47/49 repositories reachable and pinned to exact commit SHAs on 2026-09-17
-- 2/49 older repository URLs unresolved at the re-check date
-- 20 representative systems selected for deeper reproducibility checks
-- 20/20 representative systems checked for documented install/inference/evaluation entry points
-
-These numbers are a dated snapshot. Projects may release code, weights, or data after the audit date.
-
-## A few useful starting points
-
-| Project | Area | Official resource |
-|---|---|---|
-| Muse | long-form song generation / control | https://github.com/yuhui1038/Muse |
-| SonicMaster | restoration / mastering | https://github.com/AMAAI-Lab/SonicMaster |
-| BEAT | symbolic tokenization / generation | https://github.com/Lekai-Qian/BEAT-code |
-| BeatEdit | symbolic editing | https://github.com/Haoyu-Gu/BeatEdit-code |
-| PHALAR | music representation learning | https://github.com/gladia-research-group/phalar |
-| YuE | long-form music generation | https://github.com/multimodal-art-projection/YuE |
-| MusicDET | generated-music detection | https://github.com/Chaolei98/MusicDET |
-| CMI-Bench | music instruction-following evaluation | https://github.com/nicolaus625/CMI-bench |
-| AudioX | multimodal audio generation | https://github.com/ZeyueT/AudioX |
-| LLM2Fx | music post-production | https://github.com/SonyResearch/LLM2Fx |
-
-## Reproducibility note
-
-A public repository and a reproducible paper are not the same thing. Code, checkpoints, data, documented entry points, and successful runtime checks are tracked separately.
-
-If a row says that no official code was located, read it as **not verified by the audit date**, not as proof that no release exists. `NOT_TESTED` is also not a failure; it means the corresponding command has not yet been run in this project.
-
-## Small helper scripts
+The scripts work on metadata or fetch official repositories. They do not install models or download checkpoints.
 
 ```bash
 python scripts/filter_resources.py resources/papers/reviewed_papers_2026.csv --core
 python scripts/check_urls.py resources/models/generation.csv --column Resource_URL
 python scripts/summarize_releases.py
-python repro/verify_source_locks.py --file repro/all_repo_source_locks.csv
-python scripts/checkout_locked_repo.py yuhui1038/Muse
+python scripts/clone_official_repos.py --dest external
+python scripts/checkout_checked_revision.py yuhui1038/Muse
 ```
 
-They use only the Python standard library.
+## Corrections
 
-## Contributing
+Corrections and newly released official links are welcome. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
-Corrections and newly released official links are welcome. Please use author or organization project pages when possible; see [`CONTRIBUTING.md`](CONTRIBUTING.md).
+## Third-party material
 
-## License and third-party material
-
-External papers, code, weights, and datasets keep their own licenses and terms. This repository only stores metadata and small helper scripts.
+Papers, code, model weights, datasets, and demos linked here keep their own licenses and terms. This repository stores metadata and small helper scripts; it does not mirror those third-party assets.
 
 ## Citation
 
