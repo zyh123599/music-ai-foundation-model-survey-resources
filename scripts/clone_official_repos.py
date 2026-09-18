@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
-"""Clone official repositories listed in repro/official_repos.csv.
-
-This script does not install dependencies, download model weights, or accept
-third-party licenses on the user's behalf.
-"""
-
+"""Clone official GitHub repositories listed in the paper-resource crosswalk."""
 from __future__ import annotations
 
 import argparse
@@ -20,32 +15,41 @@ def rows(path: Path):
 
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--manifest", default="repro/official_repos.csv")
+    parser.add_argument("--manifest", default="resources/paper_resource_crosswalk.csv")
     parser.add_argument("--dest", default="external")
-    parser.add_argument("--domain", default=None, help="substring match on Evidence_Domain")
+    parser.add_argument("--area", default=None, help="substring match on Area")
     parser.add_argument("--depth", type=int, default=1)
     args = parser.parse_args()
 
-    manifest = Path(args.manifest)
     dest = Path(args.dest)
     dest.mkdir(parents=True, exist_ok=True)
 
     selected = []
-    for row in rows(manifest):
-        if args.domain and args.domain.lower() not in row["Evidence_Domain"].lower():
+    seen = set()
+    for row in rows(Path(args.manifest)):
+        if row.get("Resource_type") != "GitHub":
             continue
-        selected.append(row)
+        if args.area and args.area.lower() not in row.get("Area", "").lower():
+            continue
+        url = row.get("Primary_resource", "")
+        if not url.startswith("https://github.com/"):
+            continue
+        repo = url.removeprefix("https://github.com/").rstrip("/").removesuffix(".git")
+        if repo in seen:
+            continue
+        seen.add(repo)
+        selected.append((repo, url))
 
-    for i, row in enumerate(selected, 1):
-        repo = row["Repo"]
-        url = row["Resource_URL"]
+    for i, (repo, url) in enumerate(selected, 1):
         target = dest / repo.replace("/", "__")
         print(f"[{i}/{len(selected)}] {repo}")
         if target.exists():
             print(f"  skip: {target} already exists")
             continue
-        cmd = ["git", "clone", "--depth", str(args.depth), url, str(target)]
-        result = subprocess.run(cmd, check=False)
+        result = subprocess.run(
+            ["git", "clone", "--depth", str(args.depth), url, str(target)],
+            check=False,
+        )
         if result.returncode != 0:
             print(f"  clone failed ({result.returncode})")
 
